@@ -27,17 +27,17 @@ const DonorFlow = () => {
     const formData = new FormData();
     formData.append("file", file);
 
-    try {
-      const res = await fetch("http://localhost:5000/api/predict", {
-        method: "POST",
-        body: formData,
-      });
-      const data = await res.json();
-      setPrediction(data);
-    } catch (error) {
-      console.error("Prediction error:", error);
-    }
-  };
+ try {
+  const res = await fetch("https://foodclassifieraibackend-5.onrender.com/api/predict", {
+    method: "POST",
+    body: formData,
+  });
+  const data = await res.json();
+  setPrediction(data);
+} catch (error) {
+  console.error("Prediction error:", error);
+}
+
 
   // File change handler: set the file and call prediction
   const handleFileChange = (e) => {
